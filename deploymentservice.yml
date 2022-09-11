@@ -13,10 +13,11 @@ spec:
   template:
     metadata:
       labels:
-        app: our-server
+        app: nginx
     spec:
       containers:
       - name: our-server
-        image: our-server:latest
+        image: our-server
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
