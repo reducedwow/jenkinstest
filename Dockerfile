@@ -1,8 +1,14 @@
-FROM nginx:1.15.8-alpine
-#configuration
-##copy ./nginx.conf /etc/nginx/nginx.conf
-#content, comment out the ones you dont need!
-copy ./*.html /usr/share/nginx/html/
-#copy ./*.css /usr/share/nginx/html/
-#copy ./*.png /usr/share/nginx/html/
-#copy ./*.js /usr/share/nginx/html/
+#FROM nginx:1.15.8-alpine
+#copy ./*.html /usr/share/nginx/html/
+FROM node:latest
+
+WORKDIR /usr/src/app
+
+COPY package.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+CMD [ "node", "index.js" ]
