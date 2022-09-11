@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: our-server
-        image: nginx:1.14.2
+        image: our-server:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080
