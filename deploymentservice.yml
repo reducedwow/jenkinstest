@@ -21,3 +21,20 @@ spec:
         image: our-server:latest
         ports:
         - containerPort: 3000
+        
+        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: our-server-service
+spec:
+  selector:
+    app: our-server 
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 3000
+    nodePort: 31110
