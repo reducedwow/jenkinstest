@@ -18,6 +18,5 @@ spec:
       containers:
       - name: our-server
         image: 192.168.153.130:5000/our-server
-        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
