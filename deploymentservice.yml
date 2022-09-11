@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: our-server
-        image: 192.168.153.130:5000/our-server
+        image: 192.168.153.130:5000/our-server:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 80
