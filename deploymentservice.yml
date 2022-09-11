@@ -1,40 +1,22 @@
 
-   
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: our-server-deployment
   labels:
-    app: our-server
+    app: nginx
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: our-server
   template:
     metadata:
       labels:
-        app: our-server 
+        app: our-server
     spec:
       containers:
       - name: our-server
-        image: our-server:latest
+        image: nginx:1.14.2
         ports:
-        - containerPort: 3000
-        
-        
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: our-server-service
-spec:
-  selector:
-    app: our-server 
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 5000
-    targetPort: 3000
-    nodePort: 31110
+        - containerPort: 80
