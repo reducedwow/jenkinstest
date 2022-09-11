@@ -1,0 +1,23 @@
+
+   
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: our-server-deployment
+  labels:
+    app: our-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: our-server
+  template:
+    metadata:
+      labels:
+        app: our-server 
+    spec:
+      containers:
+      - name: our-server
+        image: our-server:latest
+        ports:
+        - containerPort: 3000
